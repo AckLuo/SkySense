@@ -92,7 +92,7 @@ python scripts/run_m4_uav_link.py      # M4：无人机链路仿真
 
 ## 学习路径 & 周计划
 
-详见 [`docs/ROADMAP.md`](docs/ROADMAP.md)，包含从 2025-10 到 2026-07 的
+详见 [`docs/ROADMAP.md`](docs/ROADMAP.md)，包含从 2026-10 到 2027-07 的
 38 周详细任务清单。
 
 ---
