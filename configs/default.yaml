@@ -1,0 +1,49 @@
+# ============================================================
+# SkySense 全局配置
+# ============================================================
+
+project:
+  name: "SkySense"
+  seed: 42
+
+# ---------- M1 信号基础 ----------
+m1_signal:
+  fs: 1000            # 采样率 (Hz)
+  duration: 1.0       # 信号时长 (s)
+  f0: 10.0            # 信号频率 (Hz)
+  n_harmonics: 10     # 方波重构谐波数
+
+# ---------- M2 信道建模 ----------
+m2_channel:
+  fs: 1000            # 采样率 (Hz)
+  snr_db: 10.0        # 信噪比 (dB)
+  modulation: "qpsk"  # 调制方式: bpsk / qpsk / 16qam
+  n_symbols: 1000     # 符号数
+  n_paths: 4          # 多径数
+  max_delay: 0.005    # 最大时延扩展 (s) = 5ms
+  doppler: 50.0       # 多普勒频移 (Hz)
+
+# ---------- M3 深度学习 ----------
+m3_dl:
+  dataset: "radioml"  # radioml / synthetic
+  data_path: "data/raw/RadioML2018"
+  batch_size: 64
+  epochs: 50
+  lr: 0.001
+  device: "cuda"      # cuda / cpu
+  model: "cnn"        # cnn / resnet
+  task: "modrec"      # modrec (调制识别) / chanest (信道估计)
+
+# ---------- M4 无人机链路 ----------
+m4_uav:
+  altitude: 100.0     # 飞行高度 (m)
+  velocity: 20.0      # 飞行速度 (m/s)
+  trajectory: "circle"  # circle / line / random
+  carrier_freq: 2400000000.0   # 载频 (Hz) = 2.4 GHz
+  n_steps: 200          # 轨迹步数
+
+# ---------- 输出 ----------
+output:
+  figure_dir: "outputs/figures"
+  model_dir: "outputs/models"
+  log_dir: "outputs/logs"
